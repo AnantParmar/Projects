@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <link rel="stylesheet" href="/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.css">
+    <style>
+        section {
+            width: 100vw;
+            height: 100vh;
+        }
+        div {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45vw;
+            padding: 20px;
+            margin: 150px auto;
+        }
+        button {
+            font-size: 40px;
+            border: 0px;
+            background-color: white;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover{
+            background-color: rgba(255, 255, 255, 0.361);
+        }
+        button:active{
+            /* background-color: rgba(255, 255, 255, 0.361); */
+            transform: scale(1.2);
+        }
+        
+        
+       
+    </style>
+</head>
+<body>
+    <section>
+        <div id="div">
+            <button id="first"  onclick="iFirstEventFunction(this)">
+                <i class="fa-sharp fa-solid fa-angle-left"></i>
+            </button>
+            <img id="img" src="/Img/Car/c1.avif" alt="1">
+            
+            <button id="second"  onclick="iSecondEventFunction(this)"">
+                <i class="fa-sharp fa-solid fa-angle-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        let i =0
+        function iFirstEventFunction(currentClick) {
+            let divElement = document.getElementById('div')
+            let changeImg = document.getElementById('img')
+            let newImg = document.createElement("img")
+
+            switch (i) {
+                case 0:
+                    newImg.src = "/Img/Car/c1.avif"
+                    break;
+                case 1:
+                    newImg.src = "/Img/Car/c2.avif"
+                    break;
+                case 2:
+                    newImg.src = "/Img/Car/c3.avif"
+                    break;
+                case 3:
+                    newImg.src = "/Img/Car/c4.avif"
+                    break;
+                case 4:
+                    newImg.src = "/Img/Car/c5.avif"
+                    break;
+            
+                default:
+                    break;
+            }
+            // if(i===0){
+            //     newImg.src = "/Img/Car/c2.avif"
+            //     i++
+            // }
+            // else if(i===1) {
+            //     newImg.src = "/Img/Car/c3.avif"
+            //     i++
+            // }
+            // else if(i===2) {
+            //     newImg.src = "/Img/Car/c4.avif"
+            //     i++
+            // }
+            // else if(i===3) {
+            //     newImg.src = "/Img/Car/c5.avif"
+            //     i++
+            // }
+            // else if(i===4) {
+            //     newImg.src = "/Img/Car/c1.avif"
+            //     i=0
+            // }
+
+            // newImg.src = "/Img/Car/c.avif"
+            newImg.id = "img"
+
+            if(i!=0)
+            i=(i-1)%5
+            else if(i==0)
+            i=4
+
+            currentClick.parentElement.replaceChild(newImg, changeImg)
+            console.log(i)
+            
+        }
+        function iSecondEventFunction(currentClick) {
+            let divElement = document.getElementById('div')
+            let changeImg = document.getElementById('img')
+            let newImg = document.createElement("img")
+            // if(i===0){
+            //     newImg.src = "/Img/Car/c2.avif"
+            //     i++
+            // }
+            // else if(i===1) {
+            //     newImg.src = "/Img/Car/c3.avif"
+            //     i++
+            // }
+            // else if(i===2) {
+            //     newImg.src = "/Img/Car/c4.avif"
+            //     i++
+            // }
+            // else if(i===3) {
+            //     newImg.src = "/Img/Car/c5.avif"
+            //     i++
+            // }
+            // else if(i===4) {
+            //     newImg.src = "/Img/Car/c1.avif"
+            //     i=0
+            // }
+
+            switch (i) {
+                case 0:
+                    newImg.src = "/Img/Car/c2.avif"
+                    break;
+                case 1:
+                    newImg.src = "/Img/Car/c3.avif"
+                    break;
+                case 2:
+                    newImg.src = "/Img/Car/c4.avif"
+                    break;
+                case 3:
+                    newImg.src = "/Img/Car/c5.avif"
+                    break;
+                case 4:
+                    newImg.src = "/Img/Car/c1.avif"
+                    break;
+                default:
+                    break;
+            }
+
+            if(i!=4)
+            i=(i+1)%5
+            else if(i==4)
+            i=0
+            newImg.id = "img"
+            currentClick.parentElement.replaceChild(newImg, changeImg)
+            console.log(i)
+
+            
+        }
+    </script>
+</body>
+</html>
